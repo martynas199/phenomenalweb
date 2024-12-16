@@ -9,8 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "pnpm build && next export",
-    "vercel-build": "next build && next export -o dist"
+    "export": "pnpm build && next export"
   },
   "dependencies": {
     "@formatjs/intl-pluralrules": "^5.2.12",
