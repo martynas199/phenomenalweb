@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import MultiStepForm from "../components/MultiStepForm";
+import SEO, { pageSEO } from "../components/SEO";
 
 const ContactIcon = () => (
   <svg
@@ -137,7 +139,7 @@ export default function Contacts() {
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    alert("Thank you for your message! We'll get back to you within 24 hours.");
+    alert("Thank you! We'll be in touch within 24 hours.");
     setFormData({
       name: "",
       email: "",
@@ -202,6 +204,11 @@ export default function Contacts() {
 
   return (
     <div className="min-h-screen pt-20 px-8 md:px-20 py-16">
+      <SEO {...pageSEO.contacts} />
+      
+      {/* Multi-Step Form Section */}
+      <MultiStepForm />
+
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <motion.div

@@ -16,13 +16,71 @@ export default function Hero() {
             We build performant, beautiful web experiences tailored for your
             business. From concept and design to development and maintenance.
           </p>
-          <div className="mt-8 flex items-center gap-4">
+
+          {/* Urgency Message */}
+          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-full">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+            </span>
+            <span className="text-orange-300 text-sm font-medium">
+              Only 3 slots left this month!
+            </span>
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <button className="btn-primary px-6 py-3 rounded-md font-medium">
-              Get Started
+              Get Free Consultation →
             </button>
             <button className="px-6 py-3 rounded-md glass text-gray-300">
-              Learn More
+              View Our Work
             </button>
+          </div>
+
+          {/* Benefits List */}
+          <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-400">
+            <div className="flex items-center gap-2">
+              <svg
+                className="w-5 h-5 text-green-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span>Free project estimate</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg
+                className="w-5 h-5 text-green-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span>24hr response time</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg
+                className="w-5 h-5 text-green-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span>No commitment required</span>
+            </div>
           </div>
         </div>
 
