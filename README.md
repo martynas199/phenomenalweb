@@ -1,9 +1,21 @@
-# React + Vite
+# Phenomenal Web - Starter Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a ready-to-run React + Vite + Tailwind starter project styled to match the dark/orange design you provided.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-"# dilabs-react" 
+1. Install dependencies
+```bash
+npm install
+```
+
+2. Initialize Tailwind (already configured in tailwind.config.js and postcss.config.cjs)
+
+3. Start dev server
+```bash
+npm run start
+```
+
+This uses Vite for a fast dev server. The project includes simple placeholder SVG assets; replace `/src/assets/*` with your real images for a more polished look.
+
+Enjoy!
