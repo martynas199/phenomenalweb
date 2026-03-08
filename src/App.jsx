@@ -1,37 +1,48 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import AnimatedBackground from "./components/AnimatedBackground";
-import FloatingCTA from "./components/FloatingCTA";
-
-// Import Pages
 import Home from "./pages/Home";
-import Services from "./pages/Services";
-import Industries from "./pages/Industries";
-import CaseStudy from "./pages/CaseStudy";
-import Pages from "./pages/Pages";
-import Contacts from "./pages/Contacts";
-import Blog from "./pages/Blog";
+
+const Services = lazy(() => import("./pages/Services"));
+const Industries = lazy(() => import("./pages/Industries"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
+const Pages = lazy(() => import("./pages/Pages"));
+const Contacts = lazy(() => import("./pages/Contacts"));
+const Blog = lazy(() => import("./pages/Blog"));
+
+function RouteFallback() {
+  return (
+    <div className="route-fallback" role="status" aria-live="polite">
+      Loading page...
+    </div>
+  );
+}
 
 export default function App() {
   return (
     <HelmetProvider>
       <Router>
-        <div className="min-h-screen relative">
-          <AnimatedBackground />
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
+
+        <div className="app-shell">
           <Navbar />
-          <FloatingCTA />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/industries" element={<Industries />} />
-            <Route path="/case-study" element={<CaseStudy />} />
-            <Route path="/pages" element={<Pages />} />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/blog" element={<Blog />} />
-          </Routes>
+          <Suspense fallback={<RouteFallback />}>
+            <main id="main-content">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/industries" element={<Industries />} />
+                <Route path="/case-study" element={<CaseStudy />} />
+                <Route path="/pages" element={<Pages />} />
+                <Route path="/contacts" element={<Contacts />} />
+                <Route path="/blog" element={<Blog />} />
+              </Routes>
+            </main>
+          </Suspense>
           <Footer />
         </div>
       </Router>

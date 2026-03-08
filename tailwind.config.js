@@ -4,11 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#ff4c00',
-        darkbg: '#0b0b0c'
+        primary: '#a65d2f',
+        darkbg: '#f5f1e9'
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui']
+        sans: ['Manrope', 'Inter', 'ui-sans-serif', 'system-ui'],
+        display: ['Sora', 'Inter', 'ui-sans-serif', 'system-ui']
       }
     },
   },

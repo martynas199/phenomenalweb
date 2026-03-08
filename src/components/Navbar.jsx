@@ -1,110 +1,104 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logoImage from "../assets/logo-blue-trimmed.png";
+
+const navLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#process" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Team", href: "/#team" },
+  { label: "FAQ", href: "/#faq" },
+];
 
 export default function Navbar() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "Industries", path: "/industries" },
-    { name: "Case Study", path: "/case-study" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contacts", path: "/contacts" },
-  ];
-
-  const handleLinkClick = () => {
+  useEffect(() => {
     setIsMenuOpen(false);
-  };
+  }, [location.pathname]);
 
   return (
-    <nav className="flex items-center justify-between px-8 py-6 glass fixed top-0 left-0 right-0 z-50">
-      <Link to="/" className="flex items-center gap-4">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-[#ff6b2b] flex items-center justify-center text-black font-bold">
-          PW
-        </div>
-        <h1 className="text-xl font-semibold">Phenomenal Web</h1>
-      </Link>
+    <header className="site-header">
+      <nav className="container nav-shell" aria-label="Main navigation">
+        <Link className="brand" to="/" aria-label="Phenomenal Web Home">
+          <span className="brand-mark" aria-hidden="true">
+            <img src={logoImage} alt="" loading="eager" decoding="async" />
+          </span>
+        </Link>
 
-      <ul className="hidden md:flex items-center gap-8 text-gray-300">
-        {navLinks.map((link) => (
-          <li key={link.name}>
-            <Link
-              to={link.path}
-              className={`cursor-pointer hover:text-white transition-colors duration-200 ${
-                location.pathname === link.path
-                  ? "text-white font-semibold"
-                  : ""
-              }`}
-            >
-              {link.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <Link
-        to="/contacts"
-        className="btn-primary px-4 py-2 rounded-md hidden md:block hover:scale-105 transition-transform duration-200"
-      >
-        Contact Us
-      </Link>
-
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden flex flex-col gap-1.5 p-2"
-        aria-label="Toggle menu"
-      >
-        <span
-          className={`w-6 h-0.5 bg-white transition-transform duration-300 ${
-            isMenuOpen ? "rotate-45 translate-y-2" : ""
-          }`}
-        ></span>
-        <span
-          className={`w-6 h-0.5 bg-white transition-opacity duration-300 ${
-            isMenuOpen ? "opacity-0" : ""
-          }`}
-        ></span>
-        <span
-          className={`w-6 h-0.5 bg-white transition-transform duration-300 ${
-            isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-          }`}
-        ></span>
-      </button>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed top-20 left-0 right-0 glass backdrop-blur-lg border-t border-white/10">
-          <ul className="flex flex-col p-6 space-y-4">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  to={link.path}
-                  onClick={handleLinkClick}
-                  className={`block py-2 px-4 rounded-lg transition-colors duration-200 ${
-                    location.pathname === link.path
-                      ? "bg-primary/20 text-white font-semibold"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link
-                to="/contacts"
-                onClick={handleLinkClick}
-                className="block btn-primary px-4 py-3 rounded-md text-center"
-              >
-                Contact Us
-              </Link>
+        <ul className="nav-links" role="list">
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <a href={link.href}>{link.label}</a>
             </li>
-          </ul>
+          ))}
+          <li>
+            <a href="/#contact">Contact</a>
+          </li>
+        </ul>
+
+        <div className="nav-actions">
+          <a
+            className="btn btn-primary"
+            href="https://wa.me/447450361893"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Chat on WhatsApp at 07450361893"
+          >
+            Chat on WhatsApp
+          </a>
+          <button
+            className="menu-trigger"
+            type="button"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <span className="sr-only">Toggle menu</span>
+            <span className="menu-trigger-icon" aria-hidden="true">
+              <span className="menu-trigger-bar" />
+              <span className="menu-trigger-bar" />
+              <span className="menu-trigger-bar" />
+            </span>
+          </button>
+        </div>
+      </nav>
+
+      {isMenuOpen && (
+        <div className="mobile-menu" id="mobile-nav">
+          <div className="container">
+            <ul role="list">
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} onClick={() => setIsMenuOpen(false)}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <Link to="/case-study">Case Studies</Link>
+              </li>
+              <li>
+                <Link to="/services">All Services</Link>
+              </li>
+              <li>
+                <a
+                  className="btn btn-primary"
+                  href="https://wa.me/447450361893"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Chat on WhatsApp at 07450361893"
+                >
+                  Chat on WhatsApp
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

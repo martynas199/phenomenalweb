@@ -1,117 +1,38 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import MultiStepForm from "../components/MultiStepForm";
+﻿import React, { useState } from "react";
 import SEO, { pageSEO } from "../components/SEO";
 
-const ContactIcon = () => (
-  <svg
-    viewBox="0 0 200 150"
-    className="w-full h-32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <defs>
-      <linearGradient id="contactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="50%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#8b5cf6" />
-      </linearGradient>
-    </defs>
+const channels = [
+  {
+    title: "Email",
+    detail: "hello@phenomenalweb.com",
+    note: "Best for project briefs and detailed requirements.",
+  },
+  {
+    title: "Phone",
+    detail: "+44 (0)20 0000 0000",
+    note: "Available Monday to Friday, 9:00 to 18:00.",
+  },
+  {
+    title: "Office",
+    detail: "London, United Kingdom",
+    note: "Remote-first delivery with in-person workshops available.",
+  },
+];
 
-    {/* Phone */}
-    <rect
-      x="30"
-      y="40"
-      width="50"
-      height="80"
-      fill="rgba(59, 130, 246, 0.8)"
-      rx="8"
-    />
-    <rect
-      x="35"
-      y="50"
-      width="40"
-      height="55"
-      fill="rgba(15, 23, 42, 0.8)"
-      rx="4"
-    />
-    <circle cx="55" cy="115" r="6" fill="rgba(6, 182, 212, 0.8)" />
+const projectTypes = [
+  "Brochure website",
+  "E-commerce website",
+  "Custom software",
+  "Website redesign",
+  "Ongoing support",
+];
 
-    {/* Email Icon */}
-    <rect
-      x="120"
-      y="55"
-      width="60"
-      height="40"
-      fill="none"
-      stroke="url(#contactGradient)"
-      strokeWidth="3"
-      rx="4"
-    />
-    <path
-      d="M120 55 L150 75 L180 55"
-      stroke="url(#contactGradient)"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-
-    {/* Message Bubbles */}
-    <circle cx="100" cy="30" r="15" fill="rgba(139, 92, 246, 0.6)" />
-    <path
-      d="M85 30 Q85 20 100 20 Q115 20 115 30 Q115 40 100 40 L95 40 L85 50 Z"
-      fill="rgba(139, 92, 246, 0.6)"
-    />
-    <circle cx="97" cy="27" r="2" fill="white" />
-    <circle cx="103" cy="27" r="2" fill="white" />
-    <path
-      d="M94 32 Q100 36 106 32"
-      stroke="white"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-    />
-
-    {/* Signal Waves */}
-    <path
-      d="M90 60 Q95 55 100 60"
-      stroke="rgba(6, 182, 212, 0.6)"
-      strokeWidth="2"
-      fill="none"
-    >
-      <animate
-        attributeName="opacity"
-        values="0.6;1;0.6"
-        dur="2s"
-        repeatCount="indefinite"
-      />
-    </path>
-    <path
-      d="M85 65 Q95 50 105 65"
-      stroke="rgba(6, 182, 212, 0.4)"
-      strokeWidth="2"
-      fill="none"
-    >
-      <animate
-        attributeName="opacity"
-        values="0.4;0.8;0.4"
-        dur="2s"
-        begin="0.5s"
-        repeatCount="indefinite"
-      />
-    </path>
-
-    {/* Location Pin */}
-    <circle cx="160" cy="25" r="8" fill="rgba(239, 68, 68, 0.8)" />
-    <circle cx="160" cy="22" r="4" fill="white" />
-    <path
-      d="M160 33 L160 40"
-      stroke="rgba(239, 68, 68, 0.8)"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-  </svg>
-);
+const budgetRanges = [
+  "Under 10,000",
+  "10,000 - 25,000",
+  "25,000 - 50,000",
+  "50,000+",
+];
 
 export default function Contacts() {
   const [formData, setFormData] = useState({
@@ -122,24 +43,11 @@ export default function Contacts() {
     budget: "",
     message: "",
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    alert("Thank you! We'll be in touch within 24 hours.");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsSubmitted(true);
     setFormData({
       name: "",
       email: "",
@@ -148,332 +56,166 @@ export default function Contacts() {
       budget: "",
       message: "",
     });
-    setIsSubmitting(false);
   };
 
-  const contactInfo = [
-    {
-      icon: "📧",
-      title: "Email Us",
-      detail: "hello@phenomenalweb.com",
-      description: "Send us an email anytime",
-      gradient: "from-blue-600 to-cyan-600",
-    },
-    {
-      icon: "📱",
-      title: "Call Us",
-      detail: "+1 (555) 123-4567",
-      description: "Mon-Fri 9AM-6PM EST",
-      gradient: "from-green-600 to-teal-600",
-    },
-    {
-      icon: "🏢",
-      title: "Visit Us",
-      detail: "123 Innovation Street",
-      description: "San Francisco, CA 94105",
-      gradient: "from-purple-600 to-pink-600",
-    },
-    {
-      icon: "💬",
-      title: "Live Chat",
-      detail: "Available 24/7",
-      description: "Instant support online",
-      gradient: "from-orange-600 to-red-600",
-    },
-  ];
-
-  const projectTypes = [
-    "Web Development",
-    "Mobile App Development",
-    "UI/UX Design",
-    "E-Commerce Platform",
-    "Custom Software",
-    "Digital Transformation",
-    "Consulting",
-    "Other",
-  ];
-
-  const budgetRanges = [
-    "Under $10K",
-    "$10K - $25K",
-    "$25K - $50K",
-    "$50K - $100K",
-    "$100K+",
-    "Let's Discuss",
-  ];
-
   return (
-    <div className="min-h-screen pt-20 px-8 md:px-20 py-16">
+    <div className="inner-page">
       <SEO {...pageSEO.contacts} />
-      
-      {/* Multi-Step Form Section */}
-      <MultiStepForm />
 
-      <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex justify-center mb-8">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-slate-800/50 to-slate-700/30 flex items-center justify-center card-border">
-              <ContactIcon />
-            </div>
+      <section className="section page-hero">
+        <div className="container">
+          <div className="section-heading" data-reveal>
+            <p className="eyebrow">Contact</p>
+            <h1>Tell us what you are building.</h1>
+            <p className="page-intro">
+              Share your goals, constraints, and timeline. We will respond with
+              a practical recommendation for scope and next steps.
+            </p>
           </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
-            Let's{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Connect
-            </span>
-          </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Ready to transform your digital presence? Let's discuss your project
-            and create something phenomenal together.
-          </p>
-        </motion.div>
+        </div>
+      </section>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="card-border glass p-8 rounded-2xl">
-              <h2 className="text-3xl font-bold mb-6">Start Your Project</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                      placeholder="john@company.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Company Name
-                  </label>
+      <section className="section">
+        <div className="container contact-layout">
+          <article className="form-surface" data-reveal>
+            <h2>Start your project</h2>
+            <form onSubmit={handleSubmit} className="contact-form-grid">
+              <div className="input-grid">
+                <label>
+                  Full name *
                   <input
                     type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    placeholder="Your Company"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Project Type
-                    </label>
-                    <select
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    >
-                      <option value="">Select Project Type</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Budget Range
-                    </label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    >
-                      <option value="">Select Budget Range</option>
-                      {budgetRanges.map((range) => (
-                        <option key={range} value={range}>
-                          {range}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Project Details *
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
                     required
-                    rows="6"
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
-                    placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
+                    value={formData.name}
+                    onChange={(event) =>
+                      setFormData((prev) => ({ ...prev, name: event.target.value }))
+                    }
                   />
-                </div>
+                </label>
 
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full btn-primary px-6 py-4 rounded-lg text-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Sending...
-                    </div>
-                  ) : (
-                    "Send Message"
-                  )}
-                </motion.button>
-              </form>
+                <label>
+                  Email address *
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(event) =>
+                      setFormData((prev) => ({ ...prev, email: event.target.value }))
+                    }
+                  />
+                </label>
+              </div>
+
+              <label>
+                Company
+                <input
+                  type="text"
+                  value={formData.company}
+                  onChange={(event) =>
+                    setFormData((prev) => ({ ...prev, company: event.target.value }))
+                  }
+                />
+              </label>
+
+              <div className="input-grid">
+                <label>
+                  Project type
+                  <select
+                    value={formData.projectType}
+                    onChange={(event) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        projectType: event.target.value,
+                      }))
+                    }
+                  >
+                    <option value="">Select</option>
+                    {projectTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                <label>
+                  Budget range
+                  <select
+                    value={formData.budget}
+                    onChange={(event) =>
+                      setFormData((prev) => ({ ...prev, budget: event.target.value }))
+                    }
+                  >
+                    <option value="">Select</option>
+                    {budgetRanges.map((range) => (
+                      <option key={range} value={range}>
+                        {range}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                Project details *
+                <textarea
+                  rows="6"
+                  required
+                  value={formData.message}
+                  onChange={(event) =>
+                    setFormData((prev) => ({ ...prev, message: event.target.value }))
+                  }
+                  placeholder="What are you trying to improve and by when?"
+                />
+              </label>
+
+              <button type="submit" className="btn btn-primary">
+                Send project brief
+              </button>
+
+              <p className="form-disclaimer">
+                This demo form stores data locally. Connect it to your CRM or
+                email service before production use.
+              </p>
+              {isSubmitted && (
+                <p className="form-success" role="status" aria-live="polite">
+                  Thanks, your brief has been captured.
+                </p>
+              )}
+            </form>
+          </article>
+
+          <aside className="contact-side" data-reveal>
+            <div className="contact-side-card">
+              <h3>Prefer direct contact?</h3>
+              <p>
+                If you already have a clear brief, send it directly and we will
+                reply with a recommended next step.
+              </p>
             </div>
-          </motion.div>
 
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
-            {/* Contact Cards */}
-            <div className="grid gap-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.title}
-                  className="card-border glass p-6 rounded-xl hover:glass-hover transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex items-center gap-4">
-                    <div
-                      className={`w-14 h-14 rounded-full bg-gradient-to-r ${info.gradient} flex items-center justify-center text-2xl`}
-                    >
-                      {info.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold">{info.title}</h3>
-                      <p className="text-lg text-blue-300">{info.detail}</p>
-                      <p className="text-sm text-gray-400">
-                        {info.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
+            <div className="channel-list">
+              {channels.map((channel) => (
+                <article className="channel-card" key={channel.title}>
+                  <h4>{channel.title}</h4>
+                  <p className="channel-detail">{channel.detail}</p>
+                  <p>{channel.note}</p>
+                </article>
               ))}
             </div>
 
-            {/* FAQ Section */}
-            <div className="card-border glass p-6 rounded-xl">
-              <h3 className="text-2xl font-bold mb-6">Quick Answers</h3>
-              <div className="space-y-4">
-                {[
-                  {
-                    q: "How long does a typical project take?",
-                    a: "Most projects are completed within 2-6 months, depending on complexity.",
-                  },
-                  {
-                    q: "Do you provide ongoing support?",
-                    a: "Yes, we offer maintenance and support packages for all our projects.",
-                  },
-                  {
-                    q: "Can you work with existing teams?",
-                    a: "Absolutely! We integrate seamlessly with your existing development teams.",
-                  },
-                  {
-                    q: "What's your development process?",
-                    a: "We follow agile methodology with regular updates and client collaboration.",
-                  },
-                ].map((faq, index) => (
-                  <div
-                    key={index}
-                    className="border-b border-slate-600 pb-4 last:border-b-0"
-                  >
-                    <h4 className="font-semibold text-gray-200 mb-2">
-                      {faq.q}
-                    </h4>
-                    <p className="text-gray-400 text-sm">{faq.a}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="contact-side-card">
+              <h3>What to include</h3>
+              <ul className="mini-list" role="list">
+                <li>Current website or product links</li>
+                <li>Primary goals and metrics</li>
+                <li>Required launch timeline</li>
+                <li>Key stakeholders involved</li>
+              </ul>
             </div>
-
-            {/* Social Links */}
-            <div className="card-border glass p-6 rounded-xl">
-              <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-              <div className="flex gap-4">
-                {[
-                  {
-                    name: "LinkedIn",
-                    icon: "💼",
-                    color: "from-blue-600 to-blue-700",
-                  },
-                  {
-                    name: "Twitter",
-                    icon: "🐦",
-                    color: "from-sky-500 to-sky-600",
-                  },
-                  {
-                    name: "GitHub",
-                    icon: "⚡",
-                    color: "from-gray-700 to-gray-800",
-                  },
-                  {
-                    name: "Dribbble",
-                    icon: "🎨",
-                    color: "from-pink-500 to-pink-600",
-                  },
-                ].map((social) => (
-                  <motion.div
-                    key={social.name}
-                    className={`w-12 h-12 rounded-lg bg-gradient-to-r ${social.color} flex items-center justify-center cursor-pointer`}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="text-lg">{social.icon}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+          </aside>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
