@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logoImage from "../assets/logo-blue-trimmed.png";
+import logoImage from "../assets/logo-blue-trimmed-optimized.png";
 
 const navLinks = [
-  { label: "About", href: "/#about" },
-  { label: "Services", href: "/#services" },
-  { label: "Process", href: "/#process" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Team", href: "/#team" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Case Studies", to: "/case-study" },
+  { label: "Process", to: "/process" },
+  { label: "Pricing", to: "/pricing" },
+  { label: "Global Delivery", to: "/global-delivery" },
+  { label: "Insights", to: "/blog" },
 ];
+
+const whatsappUrl = "https://wa.me/447450361893";
 
 export default function Navbar() {
   const location = useLocation();
@@ -31,20 +34,19 @@ export default function Navbar() {
         <ul className="nav-links" role="list">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a href={link.href}>{link.label}</a>
+              <Link to={link.to}>{link.label}</Link>
             </li>
           ))}
-          <li>
-            <a href="/#contact">Contact</a>
-          </li>
         </ul>
 
         <div className="nav-actions">
           <a
             className="btn btn-primary"
-            href="https://wa.me/447450361893"
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
+            data-cta="nav_whatsapp"
+            data-cta-label="Navbar WhatsApp"
             aria-label="Chat on WhatsApp at 07450361893"
           >
             Chat on WhatsApp
@@ -73,23 +75,25 @@ export default function Navbar() {
             <ul role="list">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} onClick={() => setIsMenuOpen(false)}>
+                  <Link to={link.to} onClick={() => setIsMenuOpen(false)}>
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
-                <Link to="/case-study">Case Studies</Link>
+                <Link to="/contacts">Contact</Link>
               </li>
               <li>
-                <Link to="/services">All Services</Link>
+                <Link to="/request-proposal">Request proposal</Link>
               </li>
               <li>
                 <a
                   className="btn btn-primary"
-                  href="https://wa.me/447450361893"
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
+                  data-cta="mobile_whatsapp"
+                  data-cta-label="Mobile menu WhatsApp"
                   aria-label="Chat on WhatsApp at 07450361893"
                 >
                   Chat on WhatsApp

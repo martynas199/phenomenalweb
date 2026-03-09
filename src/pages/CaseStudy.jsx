@@ -90,7 +90,7 @@ export default function CaseStudy() {
         <div className="container">
           <div className="section-heading" data-reveal>
             <p className="eyebrow">Case Studies</p>
-            <h1>Proof of delivery across strategy, design, and build.</h1>
+            <h1>Proof of delivery across strategy, design, and engineering.</h1>
             <p className="page-intro">
               A snapshot of engagements where focused digital decisions drove
               measurable business outcomes.
@@ -170,13 +170,13 @@ export default function CaseStudy() {
       <section className="section section-soft">
         <div className="container" data-reveal>
           <div className="cta-band">
-            <h2>Want your next project to look like this?</h2>
+            <h2>Want similar outcomes for your team?</h2>
             <p>
               Share your commercial goals and we will map the right digital
               roadmap with realistic scope and timing.
             </p>
             <Link to="/contacts" className="btn btn-primary">
-              Start a project conversation
+              Book strategy call
             </Link>
           </div>
         </div>

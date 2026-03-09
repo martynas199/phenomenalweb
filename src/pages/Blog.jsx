@@ -110,7 +110,7 @@ export default function Blog() {
         <div className="container">
           <div className="section-heading" data-reveal>
             <p className="eyebrow">Insights</p>
-            <h1>Practical notes on digital growth and delivery.</h1>
+            <h1>Practical insights for global digital growth.</h1>
             <p className="page-intro">
               Short, tactical articles on strategy, design, development, and
               optimization for teams building modern digital experiences.

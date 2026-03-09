@@ -725,7 +725,9 @@ summary:focus-visible {
 .momentum-track {
   display: flex;
   gap: 10px;
-  width: max-content;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
   padding: 10px;
   animation: none;
 }

@@ -94,7 +94,7 @@ export default function Pages() {
         <div className="container">
           <div className="section-heading" data-reveal>
             <p className="eyebrow">Page Systems</p>
-            <h1>Scalable page templates for consistent delivery.</h1>
+            <h1>Scalable page systems for consistent global delivery.</h1>
             <p className="page-intro">
               We design and build page frameworks that keep brand quality,
               clarity, and conversion performance consistent as you scale.

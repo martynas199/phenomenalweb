@@ -5,7 +5,7 @@ const industries = [
   {
     title: "Professional services",
     challenge:
-      "Complex services are hard to explain quickly, so high-value leads drop before contacting.",
+      "Complex services are hard to explain quickly, so high-value global buyers drop before contacting.",
     outcomes: [
       "Clearer offer architecture",
       "Improved trust and credibility",
@@ -33,7 +33,7 @@ const industries = [
     outcomes: [
       "Scalable project templates",
       "Stronger project proof sections",
-      "Better local search structure",
+      "Better international search structure",
     ],
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
@@ -92,7 +92,7 @@ export default function Industries() {
         <div className="container">
           <div className="section-heading" data-reveal>
             <p className="eyebrow">Industries</p>
-            <h1>Specialist execution across diverse sectors.</h1>
+            <h1>Industry-ready digital delivery for global teams.</h1>
             <p className="page-intro">
               We adapt strategy, UX, and engineering to sector-specific needs
               while keeping delivery simple and accountable.

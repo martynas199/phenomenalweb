@@ -1,62 +1,32 @@
-﻿import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import SEO, { pageSEO } from "../components/SEO";
 
 const channels = [
   {
+    title: "WhatsApp",
+    detail: "+44 7450 361893",
+    note: "Fastest route for first contact and project planning.",
+  },
+  {
     title: "Email",
     detail: "hello@phenomenalweb.com",
-    note: "Best for project briefs and detailed requirements.",
+    note: "Best for detailed briefs and procurement conversations.",
   },
   {
-    title: "Phone",
-    detail: "+44 (0)20 0000 0000",
-    note: "Available Monday to Friday, 9:00 to 18:00.",
-  },
-  {
-    title: "Office",
-    detail: "London, United Kingdom",
-    note: "Remote-first delivery with in-person workshops available.",
+    title: "Delivery model",
+    detail: "Remote-first global collaboration",
+    note: "Structured communication across regions and time zones.",
   },
 ];
 
-const projectTypes = [
-  "Brochure website",
-  "E-commerce website",
-  "Custom software",
-  "Website redesign",
-  "Ongoing support",
-];
-
-const budgetRanges = [
-  "Under 10,000",
-  "10,000 - 25,000",
-  "25,000 - 50,000",
-  "50,000+",
+const nextSteps = [
+  "Share your project goals and current blockers",
+  "Get practical guidance on scope and delivery model",
+  "Receive recommended next steps within one business day",
 ];
 
 export default function Contacts() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    projectType: "",
-    budget: "",
-    message: "",
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      projectType: "",
-      budget: "",
-      message: "",
-    });
-  };
 
   return (
     <div className="inner-page">
@@ -66,10 +36,10 @@ export default function Contacts() {
         <div className="container">
           <div className="section-heading" data-reveal>
             <p className="eyebrow">Contact</p>
-            <h1>Tell us what you are building.</h1>
+            <h1>Tell us what you need to build next.</h1>
             <p className="page-intro">
-              Share your goals, constraints, and timeline. We will respond with
-              a practical recommendation for scope and next steps.
+              Share your goals, timeline, and constraints. We will recommend a
+              practical scope and delivery approach within one business day.
             </p>
           </div>
         </div>
@@ -78,120 +48,43 @@ export default function Contacts() {
       <section className="section">
         <div className="container contact-layout">
           <article className="form-surface" data-reveal>
-            <h2>Start your project</h2>
-            <form onSubmit={handleSubmit} className="contact-form-grid">
-              <div className="input-grid">
-                <label>
-                  Full name *
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(event) =>
-                      setFormData((prev) => ({ ...prev, name: event.target.value }))
-                    }
-                  />
-                </label>
-
-                <label>
-                  Email address *
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(event) =>
-                      setFormData((prev) => ({ ...prev, email: event.target.value }))
-                    }
-                  />
-                </label>
-              </div>
-
-              <label>
-                Company
-                <input
-                  type="text"
-                  value={formData.company}
-                  onChange={(event) =>
-                    setFormData((prev) => ({ ...prev, company: event.target.value }))
-                  }
-                />
-              </label>
-
-              <div className="input-grid">
-                <label>
-                  Project type
-                  <select
-                    value={formData.projectType}
-                    onChange={(event) =>
-                      setFormData((prev) => ({
-                        ...prev,
-                        projectType: event.target.value,
-                      }))
-                    }
-                  >
-                    <option value="">Select</option>
-                    {projectTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-
-                <label>
-                  Budget range
-                  <select
-                    value={formData.budget}
-                    onChange={(event) =>
-                      setFormData((prev) => ({ ...prev, budget: event.target.value }))
-                    }
-                  >
-                    <option value="">Select</option>
-                    {budgetRanges.map((range) => (
-                      <option key={range} value={range}>
-                        {range}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              </div>
-
-              <label>
-                Project details *
-                <textarea
-                  rows="6"
-                  required
-                  value={formData.message}
-                  onChange={(event) =>
-                    setFormData((prev) => ({ ...prev, message: event.target.value }))
-                  }
-                  placeholder="What are you trying to improve and by when?"
-                />
-              </label>
-
-              <button type="submit" className="btn btn-primary">
-                Send project brief
-              </button>
-
-              <p className="form-disclaimer">
-                This demo form stores data locally. Connect it to your CRM or
-                email service before production use.
-              </p>
-              {isSubmitted && (
-                <p className="form-success" role="status" aria-live="polite">
-                  Thanks, your brief has been captured.
-                </p>
-              )}
-            </form>
+            <h2>Start your conversation on WhatsApp</h2>
+            <p>
+              For the fastest response, message us on WhatsApp with your goals,
+              timeline, and project type.
+            </p>
+            <div className="hero-cta-row">
+              <a
+                className="btn btn-primary"
+                href="https://wa.me/447450361893?text=Hi%20Phenomenal%20Web%2C%20I%20want%20to%20discuss%20a%20new%20project."
+                target="_blank"
+                rel="noreferrer"
+                data-cta="contact_whatsapp"
+                aria-label="Chat with Phenomenal Web on WhatsApp"
+              >
+                Chat on WhatsApp
+              </a>
+              <a className="btn btn-secondary" href="mailto:hello@phenomenalweb.com">
+                Email us instead
+              </a>
+            </div>
+            <ul className="mini-list" role="list">
+              {nextSteps.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </article>
 
           <aside className="contact-side" data-reveal>
-            <div className="contact-side-card">
-              <h3>Prefer direct contact?</h3>
+            <div className="contact-side-card" id="proposal">
+              <h3>Need a full proposal?</h3>
               <p>
-                If you already have a clear brief, send it directly and we will
-                reply with a recommended next step.
+                Use our proposal page for a structured checklist before sharing
+                your scope by WhatsApp or email.
               </p>
+              <Link className="btn btn-secondary" to="/request-proposal">
+                Open proposal guide
+              </Link>
             </div>
 
             <div className="channel-list">
@@ -205,15 +98,35 @@ export default function Contacts() {
             </div>
 
             <div className="contact-side-card">
-              <h3>What to include</h3>
+              <h3>How we work globally</h3>
               <ul className="mini-list" role="list">
-                <li>Current website or product links</li>
-                <li>Primary goals and metrics</li>
-                <li>Required launch timeline</li>
-                <li>Key stakeholders involved</li>
+                <li>Remote-first communication and delivery rituals</li>
+                <li>Timezone-aware scheduling for stakeholder meetings</li>
+                <li>Weekly progress visibility and clear action tracking</li>
+                <li>Shared documentation for alignment across teams</li>
               </ul>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section className="section section-soft">
+        <div className="container" data-reveal>
+          <div className="cta-band">
+            <h2>Want to review services first?</h2>
+            <p>
+              Explore our delivery scope across websites, web applications,
+              custom software, SEO, and ongoing support.
+            </p>
+            <div className="hero-cta-row">
+              <Link to="/services" className="btn btn-secondary">
+                Explore services
+              </Link>
+              <Link to="/global-delivery" className="btn btn-secondary">
+                How we work globally
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
