@@ -78,7 +78,7 @@ export default function SEO({
     "Phenomenal Web is a global digital partner delivering websites, web applications, custom software, SEO, and growth-focused support for ambitious companies.",
   keywords =
     "global web development company, custom software development partner, UI UX design agency, web application development, SEO and digital growth",
-  image = "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80",
+  image = "/og-image.jpg",
   url = `${SITE_URL}/`,
   type = "website",
   siteName = "Phenomenal Web",

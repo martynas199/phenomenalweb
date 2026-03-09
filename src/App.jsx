@@ -9,7 +9,11 @@ import { HelmetProvider } from "react-helmet-async";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import { extractCtaMetadata, trackCtaClick } from "./utils/analytics";
+import {
+  extractCtaMetadata,
+  trackCtaClick,
+  trackPageView,
+} from "./utils/analytics";
 
 const Services = lazy(() => import("./pages/Services"));
 const Industries = lazy(() => import("./pages/Industries"));
@@ -93,6 +97,16 @@ function SiteLayout() {
 
     return () => observer.disconnect();
   }, [location.pathname]);
+
+  useEffect(() => {
+    const frameId = window.requestAnimationFrame(() => {
+      trackPageView({
+        pagePath: `${location.pathname}${location.search}`,
+        pageTitle: document.title,
+      });
+    });
+    return () => window.cancelAnimationFrame(frameId);
+  }, [location.pathname, location.search]);
 
   return (
     <>

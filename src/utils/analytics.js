@@ -78,3 +78,25 @@ export function trackLeadSubmit({ source = "unknown", method = "unknown", pagePa
     });
   }
 }
+
+export function trackPageView({ pagePath, pageTitle }) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const payload = {
+    event: "page_view",
+    page_path: pagePath || window.location.pathname,
+    page_title: pageTitle || document.title,
+  };
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(payload);
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "page_view", {
+      page_path: payload.page_path,
+      page_title: payload.page_title,
+    });
+  }
+}
