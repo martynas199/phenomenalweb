@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 import SEO, { pageSEO } from "../components/SEO";
 
@@ -39,7 +39,7 @@ const services = [
       "Analytics and conversion tracking setup",
     ],
     image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8b6a40?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1467232004584-a241de8b6a40?auto=format&fit=crop&w=1000&q=72",
     path: "/website-development",
   },
   {
@@ -53,7 +53,7 @@ const services = [
       "Post-launch iteration support",
     ],
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=72",
     path: "/web-applications",
   },
   {
@@ -67,7 +67,7 @@ const services = [
       "Documentation and handover",
     ],
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=72",
     path: "/custom-software-development",
   },
   {
@@ -81,7 +81,7 @@ const services = [
       "Prototype validation",
     ],
     image:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1000&q=72",
     path: "/ui-ux-design",
   },
   {
@@ -95,7 +95,7 @@ const services = [
       "Growth reporting and iteration",
     ],
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=72",
     path: "/seo-growth",
   },
   {
@@ -109,7 +109,7 @@ const services = [
       "Integration strategy",
     ],
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=72",
     path: "/technical-consulting",
   },
   {
@@ -123,7 +123,7 @@ const services = [
       "Delivery roadmap backlog",
     ],
     image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=72",
     path: "/support-maintenance",
   },
 ];
@@ -347,3 +347,4 @@ export default function Services() {
     </div>
   );
 }
+

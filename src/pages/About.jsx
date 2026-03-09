@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 import SEO, { pageSEO } from "../components/SEO";
 
@@ -54,7 +54,7 @@ export default function About() {
         <div className="container">
           <div className="split-block" data-reveal>
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=72"
               alt="Global digital team collaborating"
               loading="lazy"
               decoding="async"
@@ -117,4 +117,5 @@ export default function About() {
     </div>
   );
 }
+
 

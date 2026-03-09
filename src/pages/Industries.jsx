@@ -12,7 +12,7 @@ const industries = [
       "Higher quality inbound leads",
     ],
     image:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1000&q=72",
   },
   {
     title: "Healthcare and wellness",
@@ -24,7 +24,7 @@ const industries = [
       "Operationally efficient content",
     ],
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=72",
   },
   {
     title: "Property and construction",
@@ -36,7 +36,7 @@ const industries = [
       "Better international search structure",
     ],
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=72",
   },
   {
     title: "Retail and e-commerce",
@@ -48,7 +48,7 @@ const industries = [
       "Improved average order value",
     ],
     image:
-      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1000&q=72",
   },
   {
     title: "Technology and SaaS",
@@ -60,7 +60,7 @@ const industries = [
       "Improved demo conversion rates",
     ],
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=72",
   },
   {
     title: "Logistics and operations",
@@ -72,7 +72,7 @@ const industries = [
       "Reduced manual bottlenecks",
     ],
     image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=72",
   },
 ];
 
@@ -144,3 +144,4 @@ export default function Industries() {
     </div>
   );
 }
+

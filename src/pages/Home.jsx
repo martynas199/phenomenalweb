@@ -1,5 +1,6 @@
-import React, { useMemo } from "react";
+﻿import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import SEO, { pageSEO } from "../components/SEO";
 import heroHeaderImage from "../assets/case-studies/hero-optimized.jpg";
 import nobleEleganceImage from "../assets/noble-elegance-optimized.jpg";
@@ -9,21 +10,21 @@ import justesWebImage from "../assets/justes-web-optimized.jpg";
 const stockMedia = {
   headerImage: heroHeaderImage,
   about:
-    "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1000&q=72",
   team:
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=72",
   website:
-    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=72",
   webApp:
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1000&q=72",
   software:
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=72",
   uiux:
-    "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1000&q=72",
   seo:
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=72",
   support:
-    "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=72",
 };
 
 const heroStats = [
@@ -241,6 +242,10 @@ export default function Home() {
 
   return (
     <div className="home-page home-refresh">
+      <Helmet>
+        <link rel="preload" as="image" href={stockMedia.headerImage} />
+      </Helmet>
+
       <SEO
         {...pageSEO.home}
         image={stockMedia.headerImage}
@@ -621,3 +626,4 @@ export default function Home() {
     </div>
   );
 }
+

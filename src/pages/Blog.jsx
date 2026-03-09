@@ -12,7 +12,7 @@ const posts = [
     readTime: "6 min read",
     author: "Editorial Team",
     image:
-      "https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?auto=format&fit=crop&w=1000&q=72",
     tags: ["UX", "Conversion", "Services"],
   },
   {
@@ -25,7 +25,7 @@ const posts = [
     readTime: "8 min read",
     author: "Platform Lead",
     image:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=72",
     tags: ["CMS", "Architecture", "Operations"],
   },
   {
@@ -38,7 +38,7 @@ const posts = [
     readTime: "5 min read",
     author: "Strategy Director",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=72",
     tags: ["Performance", "SEO", "Revenue"],
   },
   {
@@ -51,7 +51,7 @@ const posts = [
     readTime: "9 min read",
     author: "Growth Analyst",
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=72",
     tags: ["CRO", "Testing", "Analytics"],
   },
   {
@@ -64,7 +64,7 @@ const posts = [
     readTime: "7 min read",
     author: "UX Lead",
     image:
-      "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1000&q=72",
     tags: ["Forms", "UX", "Lead Gen"],
   },
   {
@@ -77,7 +77,7 @@ const posts = [
     readTime: "10 min read",
     author: "Engineering Manager",
     image:
-      "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1000&q=72",
     tags: ["Software", "Integration", "Technical Strategy"],
   },
 ];
@@ -191,3 +191,4 @@ export default function Blog() {
     </div>
   );
 }
+

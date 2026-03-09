@@ -10,7 +10,7 @@ const studies = [
     client: "Northforge Advisory",
     timeline: "10 weeks",
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=72",
     challenge:
       "The previous website looked dated, service pages were difficult to navigate, and inbound leads were poorly qualified.",
     solution:
@@ -33,7 +33,7 @@ const studies = [
     client: "Aster Health Group",
     timeline: "14 weeks",
     image:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=72",
     challenge:
       "Patients struggled to locate the right services and internal teams found content updates slow and error-prone.",
     solution:
@@ -56,7 +56,7 @@ const studies = [
     client: "Westbridge Retail",
     timeline: "12 weeks",
     image:
-      "https://images.unsplash.com/photo-1556742393-d75f468bfcb0?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1556742393-d75f468bfcb0?auto=format&fit=crop&w=1200&q=72",
     challenge:
       "Acquisition spend was rising but conversion rates and average order value were stagnating.",
     solution:
@@ -184,3 +184,4 @@ export default function CaseStudy() {
     </div>
   );
 }
+
